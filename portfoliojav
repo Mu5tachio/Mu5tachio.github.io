@@ -8,3 +8,26 @@ function changeSlide(){
 }
 
 setInterval(changeSlide, 4000)
+
+function afficherDetails(nomActivite) {
+  const zone = document.getElementById('affichage-details');
+  
+  if (nomActivite === 'Regex et Téléphonie') {
+    zone.innerHTML = `
+      <h2>Détails de l'activité 1</h2>
+      <img src="regex.jpg" alt="Photo 1">
+      <img src="photo2.jpg" alt="Photo 2">
+    `;
+  }
+}
+function afficherDetails(nomActivite) {
+  const zone = document.getElementById('affichage-details');
+  
+  if (nomActivite === 'activite1') {
+    zone.innerHTML = `
+      <h2>Détails de l'activité 1</h2>
+      <img src="photo1.jpg" alt="Photo 1">
+      <img src="photo2.jpg" alt="Photo 2">
+    `;
+  }
+}
