@@ -1,209 +1,176 @@
-xml
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galerie Cyber SES | Gabriel VAN ELST</title>
+<title>Galerie Projets | SISR Portfolio</title>
+
+>
 //fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* RESET & BASE */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    font-family: 'Poppins', sans-serif; 
-    background: #0f172a; 
-    color: #e2e8f0; 
-    line-height: 1.6; 
-    scroll-behavior: smooth; 
+/* Styles spécifiques à la galerie */
+.galerie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
-body.light { background: #f8fafc; color: #0f172a; }
 
-/* HEADER */
-header { 
-    position: fixed; width: 100%; top: 0; 
-    background: rgba(15, 23, 42, 0.9); 
-    backdrop-filter: blur(10px); 
-    display: flex; justify-content: space-between; align-items: center; 
-    padding: 15px 40px; z-index: 1000; 
+.galerie-item {
+    position: relative;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-body.light header { background: rgba(255,255,255,0.9); }
-.logo { font-weight: 700; font-size: 1.5rem; }
-nav a { margin: 0 10px; text-decoration: none; color: inherit; font-weight: 500; transition: 0.3s; }
-nav a:hover { color: #38bdf8; }
-.controls { display: flex; gap: 10px; }
-.toggle { background: #1e293b; border: none; padding: 8px 12px; color: white; cursor: pointer; border-radius: 6px; }
-body.light .toggle { background: #e2e8f0; color: black; }
 
-/* HERO */
-.hero { 
-    min-height: 100vh; display: flex; align-items: center; justify-content: center; 
-    text-align: center; padding: 140px 20px 80px; 
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+.galerie-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(56, 189, 248, 0.3);
 }
-body.light .hero { background: linear-gradient(135vent(135deg, #f8fafc 0%, #e2e8f0 100%); }
-.hero h2 { font-size: 3rem; margin-bottom: 20px; }
-.hero span { color: #38bdf8; }
-.hero p { font-size: 1.3rem; max-width: 600px; margin: 0 auto 40px; }
 
-/* SECTIONS */
-section { padding: 80px 60px; }
-h2 { text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
-
-/* GALERIE PRINCIPALE - HOME ASSISTANT */
-.galerie { max-width: 1600px; margin: 0 auto; }
-.galerie-grid { 
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 40px; 
+.galerie-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.projet-item { 
-    background: #1e293b; border-radius: 20px; overflow: hidden; transition: 0.4s; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+
+.galerie-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
+    color: white;
+    padding: 30px 20px 20px;
 }
-body.light .projet-item { background: #ffffff; }
-.projet-item:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(56, 189, 248, 0.4); }
-.projet-image { width: 100%; height: 350px; object-fit: cover; }
-.projet-content { padding: 30px; }
-.projet-titre { font-size: 1.8rem; color: #38bdf8; margin-bottom: 15px; font-weight: 600; }
-.projet-desc { font-size: 1.1rem; line-height: 1.7; }
 
-/* FOOTER */
-footer { text-align: center; padding: 30px; background: #020617; margin-top: 80px; }
-body.light footer { background: #e2e8f0; }
+.galerie-titre {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
 
-/* RESPONSIVE */
-@media(max-width: 900px) { 
-    header { padding: 15px 20px; } 
-    nav { display: none; } 
-    .hero h2 { font-size: 2rem; } 
-    section { padding: 60px 20px; } 
-    .galerie-grid { grid-template-columns: 1fr; gap: 30px; } 
+.galerie-desc {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+body.light .galerie-overlay {
+    background: linear-gradient(transparent, rgba(248, 250, 252, 0.9));
+    color: #0f172a;
 }
 </style>
 </head>
 
 <body>
+
 <header>
-    <h1 class="logo">Cyber SES | Home Assistant</h1>
-    <nav>
-        <a href="#home">Accueil</a>
-        <a href="#galerie">Installation</a>
-        <a href="#config">Configuration</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <div class="controls">
-        <button class="toggle" onclick="toggleTheme()">🌙</button>
-    </div>
+<h1 class="logo">SISR Portfolio Gabriel VAN ELST</h1>
+
+<nav>
+<a href="#home">Accueil</a>
+<a href="#galerie">Galerie</a>
+<a href="#about">Profil</a>
+<a href="#timeline">Parcours</a>
+<a href="#projects">Projets</a>
+<a href="#skills">Compétences</a>
+<a href="#network">Infrastructure</a>
+<a href="#synthese">Synthèse BTS</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="controls">
+<button class="toggle" onclick="toggleTheme()">🌙</button>
+<button class="toggle" onclick="toggleLang()">FR / EN</button>
+</div>
 </header>
 
+<main>
 <section id="home" class="hero">
-    <div>
-        <h2>Installation <span>Home Assistant</span></h2>
-        <p class="fr">Projet Cyber SES BTS SIO : Déploiement complet sur Raspberry Pi pour supervision domotique client.</p>
-        <p class="en" style="display:none">Cyber SES BTS SIO project: Full Home Assistant deployment on Raspberry Pi for client home automation.</p>
-    </div>
+<div class="hero-content" style="text-align: center;">
+<h2>Mes <span>Projets en Images</span></h2>
+<p class="fr">Découvrez visuellement mes réalisations en administration systèmes et réseaux.</p>
+<p class="en" style="display:none">Discover visually my achievements in systems and network administration.</p>
+</div>
 </section>
 
-<section id="galerie" class="galerie">
-    <h2>Étapes Installation</h2>
-    
-    <div class="galerie-grid">
-        <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d13f04467208228083bb57568f0614a6cd75807b.jpg" alt="Raspberry Pi Home Assistant boot">
-            <div class="projet-content">
-                <h3 class="projet-titre">Raspberry Pi 5</h3>
-                <p class="projet-desc">Matériel choisi : Pi 5 + dissipateur + ventilo. Installation Home Assistant OS via Raspberry Pi Imager.</p>
-            </div>
-        </div>
+<section id="galerie">
+<h2>Galerie de Projets</h2>
 
-        <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7074c2913cf37f07e7dbc5f543b821c3fff2e90e.jpg" alt="Boîtier Raspberry Pi Home Assistant">
-            <div class="projet-content">
-                <h3 class="projet-titre">Assemblage</h3>
-                <p class="projet-desc">Montage boîtier officiel avec câbles réseau et alimentation 5V/5A. Fixation carte SD 128Go A2.</p>
-            </div>
-        </div>
+<div class="galerie-grid">
+<div class="galerie-item">
+<img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d13f04467208228083bb57568f0614a6cd75807b.jpg" alt="Installation Home Assistant sur Raspberry Pi">
+<div class="galerie-overlay">
+<h3 class="galerie-titre">Home Assistant</h3>
+<p class="galerie-desc">Installation et configuration sur Raspberry Pi pour supervision domotique.</p>
+</div>
+</div>
 
-        <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3f86983bd891547af69fbcb2d34c4dee5cb69516.jpg" alt="Raspberry Pi Imager Home Assistant">
-            <div class="projet-content">
-                <h3 class="projet-titre">Flash OS</h3>
-                <p class="projet-desc">Écriture image Home Assistant OS v12 sur carte SD. Configuration SSH et WiFi en pré-prod.</p>
-            </div>
-        </div>
+<div class="galerie-item">
+<img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2eecc49efb4b8de023683578cb7de65a0f5009fd.jpg" alt="Dépannage Active Directory">
+<div class="galerie-overlay">
+<h3 class="galerie-titre">Intégrations</h3>
+<p class="galerie-desc">Zigbee2USB + Tuya + Shelly. Détection 25 appareils : lumières, prises, capteurs température/humidité.</p>
+</div>
+</div>
 
-        <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1024x577/421e4b72-1796-58dd-babb-19abdf6cb828.jpg" alt="Home Assistant Dashboard">
-            <div class="projet-content">
-                <h3 class="projet-titre">Premier Boot</h3>
-                <p class="projet-desc">Accès http://homeassistant.local:8123. Configuration initiale utilisateur/admin et onboarding.</p>
-            </div>
-        </div>
-    </div>
+<div class="galerie-item">
+<img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/81a8b5f9938f617d39f160f431d61aa3148f24a3.jpg" alt="Administration Linux">
+<div class="galerie-overlay">
+<h3 class="galerie-titre">Automatismes</h3>
+<p class="galerie-desc">10 scénarios : lever soleil (lumières), retour maison (chauffage), nuit (sécurité). YAML + UI</p>
+</div>
+</div>
+
+<div class="galerie-item">
+<img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a6e68d788f295093344d234d2373c3348f923732.jpg" alt="Schéma infrastructure réseau">
+<div class="galerie-overlay">
+<h3 class="galerie-titre">Dashboard Client</h3>
+<p class="galerie-desc">Interface Lovelace custom : cards énergie, climat, sécurité. Accès app mobile Android/iOS</p>
+</div>
+</div>
+</div>
 </section>
-
-<section id="config" class="galerie">
-    <h2>Configuration & Automatismes</h2>
-    
-    <div class="galerie-grid">
-        <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/edd539b8-86cc-5cd6-bc70-efd153264288.jpg" alt="Home Assistant intégrations">
-            <div class="projet-content">
-                <h3 class="projet-titre">Intégrations</h3>
-                <p class="projet-desc">Zigbee2USB + Tuya + Shelly. Détection 25 appareils : lumières, prises, capteurs température/humidité.</p>
-            </div>
-        </div>
-
-        <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f3579d06-35c1-55d0-a487-6c5dfcbd6712.jpg" alt="Home Assistant automations">
-            <div class="projet-content">
-                <h3 class="projet-titre">Automatismes</h3>
-                <p class="projet-desc">10 scénarios : lever soleil (lumières), retour maison (chauffage), nuit (sécurité). YAML + UI.</p>
-            </div>
-        </div>
-
-        <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3f86983bd891547af69fbcb2d34c4dee5cb69516.jpg" alt="Home Assistant Lovelace dashboard">
-            <div class="projet-content">
-                <h3 class="projet-titre">Dashboard Client</h3>
-                <p class="projet-desc">Interface Lovelace custom : cards énergie, climat, sécurité. Accès app mobile Android/iOS.</p>
-            </div>
-        </div>
-
-        <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d13f04467208228083bb57568f0614a6cd75807b.jpg" alt="Home Assistant monitoring">
-            <div class="projet-content">
-                <h3 class="projet-titre">Monitoring</h3>
-                <p class="projet-desc">Addon Supervisor + MariaDB + Grafana. Logs système, uptime 99.8%, backup auto Google Drive.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <h2>Contact</h2>
-    <div style="text-align: center; max-width: 500px; margin: 0 auto;">
-        <p><strong>gab.van@orange.fr</strong></p>
-        <p><a href="https://www.linkedin.com/in/ton-profil" target="_blank" style="color: #38bdf8;">LinkedIn</a> | <a href="https://github.com/Mu5tachio" target="_blank" style="color: #38bdf8;">GitHub</a></p>
-    </div>
-</section>
+</main>
 
 <footer>
-    <p>© 2026 Gabriel VAN ELST | BTS SIO SISR - Cyber SES</p>
+<p>© 2026 Portfolio BTS SIO SISR</p>
 </footer>
 
 <script>
-function toggleTheme() { document.body.classList.toggle("light"); }
-function toggleLang() {
-    const fr = document.querySelectorAll(".fr"), en = document.querySelectorAll(".en");
-    fr.forEach(e => e.style.display = e.style.display === "none" ? "block" : "none");
-    en.forEach(e => e.style.display = e.style.display === "none" ? "block" : "none");
+function toggleTheme(){
+ document.body.classList.toggle("light")
 }
-document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute("href"));
-        target?.scrollIntoView({ behavior: "smooth" });
-    });
-});
+
+function toggleLang(){
+ const fr=document.querySelectorAll(".fr")
+ const en=document.querySelectorAll(".en")
+
+ fr.forEach(e=>{
+  e.style.display=e.style.display==="none"?"block":"none"
+ })
+
+ en.forEach(e=>{
+  e.style.display=e.style.display==="none"?"block":"none"
+ })
+}
+
+const links=document.querySelectorAll("nav a")
+links.forEach(link=>{
+ link.addEventListener("click",e=>{
+  e.preventDefault()
+  const target=document.querySelector(link.getAttribute("href"))
+  if(target) {
+    target.scrollIntoView({behavior:"smooth"})
+  } else {
+    window.location.href = link.getAttribute("href")
+  }
+ })
+})
 </script>
+
 </body>
 </html>
