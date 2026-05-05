@@ -1,9 +1,10 @@
+xml
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galerie SISR | Gabriel VAN ELST</title>
+<title>Galerie Cyber SES | Gabriel VAN ELST</title>
 //fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* RESET & BASE */
@@ -39,7 +40,7 @@ body.light .toggle { background: #e2e8f0; color: black; }
     text-align: center; padding: 140px 20px 80px; 
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
 }
-body.light .hero { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
+body.light .hero { background: linear-gradient(135vent(135deg, #f8fafc 0%, #e2e8f0 100%); }
 .hero h2 { font-size: 3rem; margin-bottom: 20px; }
 .hero span { color: #38bdf8; }
 .hero p { font-size: 1.3rem; max-width: 600px; margin: 0 auto 40px; }
@@ -48,7 +49,7 @@ body.light .hero { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)
 section { padding: 80px 60px; }
 h2 { text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
 
-/* GALERIE PRINCIPALE */
+/* GALERIE PRINCIPALE - HOME ASSISTANT */
 .galerie { max-width: 1600px; margin: 0 auto; }
 .galerie-grid { 
     display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 40px; 
@@ -81,10 +82,11 @@ body.light footer { background: #e2e8f0; }
 
 <body>
 <header>
-    <h1 class="logo">SISR | Galerie Projets</h1>
+    <h1 class="logo">Cyber SES | Home Assistant</h1>
     <nav>
         <a href="#home">Accueil</a>
-        <a href="#galerie">Galerie</a>
+        <a href="#galerie">Installation</a>
+        <a href="#config">Configuration</a>
         <a href="#contact">Contact</a>
     </nav>
     <div class="controls">
@@ -94,45 +96,83 @@ body.light footer { background: #e2e8f0; }
 
 <section id="home" class="hero">
     <div>
-        <h2>Mes Réalisations <span>SISR</span></h2>
-        <p class="fr">Découvrez visuellement mes projets en administration systèmes et réseaux lors de mon BTS SIO.</p>
-        <p class="en" style="display:none">Discover visually my SISR projects during my BTS SIO training.</p>
+        <h2>Installation <span>Home Assistant</span></h2>
+        <p class="fr">Projet Cyber SES BTS SIO : Déploiement complet sur Raspberry Pi pour supervision domotique client.</p>
+        <p class="en" style="display:none">Cyber SES BTS SIO project: Full Home Assistant deployment on Raspberry Pi for client home automation.</p>
     </div>
 </section>
 
 <section id="galerie" class="galerie">
-    <h2>Portfolio Visuel</h2>
+    <h2>Étapes Installation</h2>
     
     <div class="galerie-grid">
         <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d13f04467208228083bb57568f0614a6cd75807b.jpg" alt="Home Assistant Raspberry Pi">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d13f04467208228083bb57568f0614a6cd75807b.jpg" alt="Raspberry Pi Home Assistant boot">
             <div class="projet-content">
-                <h3 class="projet-titre">Installation Home Assistant</h3>
-                <p class="projet-desc">Déploiement sur Raspberry Pi 5 pour supervision domotique. Configuration OS, automatismes et interface utilisateur pour client SES.</p>
+                <h3 class="projet-titre">Raspberry Pi 5</h3>
+                <p class="projet-desc">Matériel choisi : Pi 5 + dissipateur + ventilo. Installation Home Assistant OS via Raspberry Pi Imager.</p>
             </div>
         </div>
 
         <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2eecc49efb4b8de023683578cb7de65a0f5009fd.jpg" alt="Dépannage Active Directory">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7074c2913cf37f07e7dbc5f543b821c3fff2e90e.jpg" alt="Boîtier Raspberry Pi Home Assistant">
             <div class="projet-content">
-                <h3 class="projet-titre">Dépannage Active Directory</h3>
-                <p class="projet-desc">Diagnostic complet : logs événements, contrôleur domaine, VLAN, DNS, pare-feu. Résolution panne authentification pour entreprise B.I.C.</p>
+                <h3 class="projet-titre">Assemblage</h3>
+                <p class="projet-desc">Montage boîtier officiel avec câbles réseau et alimentation 5V/5A. Fixation carte SD 128Go A2.</p>
             </div>
         </div>
 
         <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/81a8b5f9938f617d39f160f431d61aa3148f24a3.jpg" alt="Serveur Linux">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3f86983bd891547af69fbcb2d34c4dee5cb69516.jpg" alt="Raspberry Pi Imager Home Assistant">
             <div class="projet-content">
-                <h3 class="projet-titre">Administration Linux</h3>
-                <p class="projet-desc">Configuration serveurs Ubuntu/Debian : services mail, base MariaDB, monitoring Centreon/Zabbix, gestion utilisateurs et sécurisation.</p>
+                <h3 class="projet-titre">Flash OS</h3>
+                <p class="projet-desc">Écriture image Home Assistant OS v12 sur carte SD. Configuration SSH et WiFi en pré-prod.</p>
             </div>
         </div>
 
         <div class="projet-item">
-            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a6e68d788f295093344d234d2373c3348f923732.jpg" alt="Infrastructure réseau">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1024x577/421e4b72-1796-58dd-babb-19abdf6cb828.jpg" alt="Home Assistant Dashboard">
             <div class="projet-content">
-                <h3 class="projet-titre">Architecture Réseau</h3>
-                <p class="projet-desc">Schéma complet : firewall, Active Directory, serveurs Linux/Windows, VLAN, VPN, postes clients. Conception et virtualisation labo.</p>
+                <h3 class="projet-titre">Premier Boot</h3>
+                <p class="projet-desc">Accès http://homeassistant.local:8123. Configuration initiale utilisateur/admin et onboarding.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="config" class="galerie">
+    <h2>Configuration & Automatismes</h2>
+    
+    <div class="galerie-grid">
+        <div class="projet-item">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/edd539b8-86cc-5cd6-bc70-efd153264288.jpg" alt="Home Assistant intégrations">
+            <div class="projet-content">
+                <h3 class="projet-titre">Intégrations</h3>
+                <p class="projet-desc">Zigbee2USB + Tuya + Shelly. Détection 25 appareils : lumières, prises, capteurs température/humidité.</p>
+            </div>
+        </div>
+
+        <div class="projet-item">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f3579d06-35c1-55d0-a487-6c5dfcbd6712.jpg" alt="Home Assistant automations">
+            <div class="projet-content">
+                <h3 class="projet-titre">Automatismes</h3>
+                <p class="projet-desc">10 scénarios : lever soleil (lumières), retour maison (chauffage), nuit (sécurité). YAML + UI.</p>
+            </div>
+        </div>
+
+        <div class="projet-item">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3f86983bd891547af69fbcb2d34c4dee5cb69516.jpg" alt="Home Assistant Lovelace dashboard">
+            <div class="projet-content">
+                <h3 class="projet-titre">Dashboard Client</h3>
+                <p class="projet-desc">Interface Lovelace custom : cards énergie, climat, sécurité. Accès app mobile Android/iOS.</p>
+            </div>
+        </div>
+
+        <div class="projet-item">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d13f04467208228083bb57568f0614a6cd75807b.jpg" alt="Home Assistant monitoring">
+            <div class="projet-content">
+                <h3 class="projet-titre">Monitoring</h3>
+                <p class="projet-desc">Addon Supervisor + MariaDB + Grafana. Logs système, uptime 99.8%, backup auto Google Drive.</p>
             </div>
         </div>
     </div>
@@ -142,15 +182,12 @@ body.light footer { background: #e2e8f0; }
     <h2>Contact</h2>
     <div style="text-align: center; max-width: 500px; margin: 0 auto;">
         <p><strong>gab.van@orange.fr</strong></p>
-        <p>
-            <a href="https://www.linkedin.com/in/ton-profil" target="_blank" style="color: #38bdf8;">LinkedIn</a> | 
-            <a href="https://github.com/Mu5tachio" target="_blank" style="color: #38bdf8;">GitHub</a>
-        </p>
+        <p><a href="https://www.linkedin.com/in/ton-profil" target="_blank" style="color: #38bdf8;">LinkedIn</a> | <a href="https://github.com/Mu5tachio" target="_blank" style="color: #38bdf8;">GitHub</a></p>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 Gabriel VAN ELST | BTS SIO SISR</p>
+    <p>© 2026 Gabriel VAN ELST | BTS SIO SISR - Cyber SES</p>
 </footer>
 
 <script>
@@ -160,7 +197,6 @@ function toggleLang() {
     fr.forEach(e => e.style.display = e.style.display === "none" ? "block" : "none");
     en.forEach(e => e.style.display = e.style.display === "none" ? "block" : "none");
 }
-
 document.querySelectorAll("nav a").forEach(link => {
     link.addEventListener("click", e => {
         e.preventDefault();
