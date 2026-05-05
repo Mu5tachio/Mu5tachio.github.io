@@ -3,174 +3,171 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galerie Projets | SISR Portfolio</title>
-
->
+<title>Galerie Cyber SES | Gabriel VAN ELST</title>
 //fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Styles spécifiques à la galerie */
-.galerie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
+/* RESET & BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Poppins', sans-serif; 
+    background: #0f172a; 
+    color: #e2e8f0; 
+    line-height: 1.6; 
+    scroll-behavior: smooth; 
 }
+body.light { background: #f8fafc; color: #0f172a; }
 
-.galerie-item {
-    position: relative;
-    height: 400px;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+/* HEADER */
+header { 
+    position: fixed; width: 100%; top: 0; 
+    background: rgba(15, 23, 42, 0.9); 
+    backdrop-filter: blur(10px); 
+    display: flex; justify-content: space-between; align-items: center; 
+    padding: 15px 40px; z-index: 1000; 
 }
+body.light header { background: rgba(255,255,255,0.9); }
+.logo { font-weight: 700; font-size: 1.5rem; }
+nav a { margin: 0 10px; text-decoration: none; color: inherit; font-weight: 500; transition: 0.3s; }
+nav a:hover { color: #38bdf8; }
+.controls { display: flex; gap: 10px; }
+.toggle { background: #1e293b; border: none; padding: 8px 12px; color: white; cursor: pointer; border-radius: 6px; }
+body.light .toggle { background: #e2e8f0; color: black; }
 
-.galerie-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 20px 40px rgba(56, 189, 248, 0.3);
+/* HERO */
+.hero { 
+    min-height: 100vh; display: flex; align-items: center; justify-content: center; 
+    text-align: center; padding: 140px 20px 80px; 
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
 }
+body.light .hero { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
+.hero h2 { font-size: 3rem; margin-bottom: 20px; }
+.hero span { color: #38bdf8; }
+.hero p { font-size: 1.3rem; max-width: 600px; margin: 0 auto 40px; }
 
-.galerie-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* SECTIONS */
+section { padding: 80px 60px; }
+h2 { text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
+
+/* GALERIE PRINCIPALE */
+.galerie { max-width: 1600px; margin: 0 auto; }
+.galerie-grid { 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 40px; 
 }
-
-.galerie-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
-    color: white;
-    padding: 30px 20px 20px;
+.projet-item { 
+    background: #1e293b; border-radius: 20px; overflow: hidden; transition: 0.4s; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
 }
+body.light .projet-item { background: #ffffff; }
+.projet-item:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(56, 189, 248, 0.4); }
+.projet-image { width: 100%; height: 350px; object-fit: cover; }
+.projet-content { padding: 30px; }
+.projet-titre { font-size: 1.8rem; color: #38bdf8; margin-bottom: 15px; font-weight: 600; }
+.projet-desc { font-size: 1.1rem; line-height: 1.7; }
 
-.galerie-titre {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
+/* FOOTER */
+footer { text-align: center; padding: 30px; background: #020617; margin-top: 80px; }
+body.light footer { background: #e2e8f0; }
 
-.galerie-desc {
-    font-size: 0.95rem;
-    opacity: 0.9;
-}
-
-body.light .galerie-overlay {
-    background: linear-gradient(transparent, rgba(248, 250, 252, 0.9));
-    color: #0f172a;
+/* RESPONSIVE */
+@media(max-width: 900px) { 
+    header { padding: 15px 20px; } 
+    nav { display: none; } 
+    .hero h2 { font-size: 2rem; } 
+    section { padding: 60px 20px; } 
+    .galerie-grid { grid-template-columns: 1fr; gap: 30px; } 
 }
 </style>
 </head>
 
 <body>
-
 <header>
-<h1 class="logo">SISR Portfolio Gabriel VAN ELST</h1>
-
-<nav>
-<a href="#home">Accueil</a>
-<a href="#galerie">Galerie</a>
-<a href="#about">Profil</a>
-<a href="#timeline">Parcours</a>
-<a href="#projects">Projets</a>
-<a href="#skills">Compétences</a>
-<a href="#network">Infrastructure</a>
-<a href="#synthese">Synthèse BTS</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<div class="controls">
-<button class="toggle" onclick="toggleTheme()">🌙</button>
-<button class="toggle" onclick="toggleLang()">FR / EN</button>
-</div>
+    <h1 class="logo">Cyber SES | Galerie Projets </h1>
+    <nav>
+        <a href="#home">Accueil</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="controls">
+        <button class="toggle" onclick="toggleTheme()">🌙</button>
+    </div>
 </header>
 
-<main>
 <section id="home" class="hero">
-<div class="hero-content" style="text-align: center;">
-<h2>Mes <span>Projets en Images</span></h2>
-<p class="fr">Découvrez visuellement mes réalisations en administration systèmes et réseaux.</p>
-<p class="en" style="display:none">Discover visually my achievements in systems and network administration.</p>
-</div>
+    <div>
+        <h2>Mes Réalisations <span>SISR</span></h2>
+        <p class="fr">Découvrez visuellement mes projets en administration systèmes et réseaux lors de mon BTS SIO.</p>
+        <p class="en" style="display:none">Discover visually my SISR projects during my BTS SIO training.</p>
+    </div>
 </section>
 
-<section id="galerie">
-<h2>Galerie de Projets</h2>
+<section id="galerie" class="galerie">
+    <h2>Portfolio Visuel</h2>
+    
+    <div class="galerie-grid">
+        <div class="projet-item">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d13f04467208228083bb57568f0614a6cd75807b.jpg" alt="Home Assistant Raspberry Pi">
+            <div class="projet-content">
+                <h3 class="projet-titre">Installation Home Assistant</h3>
+                <p class="projet-desc">Déploiement sur Raspberry Pi 5 pour supervision domotique. Configuration OS, automatismes et interface utilisateur pour client SES.</p>
+            </div>
+        </div>
 
-<div class="galerie-grid">
-<div class="galerie-item">
-<img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d13f04467208228083bb57568f0614a6cd75807b.jpg" alt="Installation Home Assistant sur Raspberry Pi">
-<div class="galerie-overlay">
-<h3 class="galerie-titre">Home Assistant</h3>
-<p class="galerie-desc">Installation et configuration sur Raspberry Pi pour supervision domotique.</p>
-</div>
-</div>
+        <div class="projet-item">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2eecc49efb4b8de023683578cb7de65a0f5009fd.jpg" alt="Dépannage Active Directory">
+            <div class="projet-content">
+                <h3 class="projet-titre">Intégrations</h3>
+                <p class="projet-desc">Zigbee2USB + Tuya + Shelly. Détection 25 appareils : lumières, prises, capteurs température/humidité</p>
+            </div>
+        </div>
 
-<div class="galerie-item">
-<img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2eecc49efb4b8de023683578cb7de65a0f5009fd.jpg" alt="Dépannage Active Directory">
-<div class="galerie-overlay">
-<h3 class="galerie-titre">Intégrations</h3>
-<p class="galerie-desc">Zigbee2USB + Tuya + Shelly. Détection 25 appareils : lumières, prises, capteurs température/humidité.</p>
-</div>
-</div>
+        <div class="projet-item">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/81a8b5f9938f617d39f160f431d61aa3148f24a3.jpg" alt="Serveur Linux">
+            <div class="projet-content">
+                <h3 class="projet-titre">Automatismes</h3>
+                <p class="projet-desc">10 scénarios : lever soleil (lumières), retour maison (chauffage), nuit (sécurité). YAML + UI</p>
+            </div>
+        </div>
 
-<div class="galerie-item">
-<img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/81a8b5f9938f617d39f160f431d61aa3148f24a3.jpg" alt="Administration Linux">
-<div class="galerie-overlay">
-<h3 class="galerie-titre">Automatismes</h3>
-<p class="galerie-desc">10 scénarios : lever soleil (lumières), retour maison (chauffage), nuit (sécurité). YAML + UI</p>
-</div>
-</div>
-
-<div class="galerie-item">
-<img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a6e68d788f295093344d234d2373c3348f923732.jpg" alt="Schéma infrastructure réseau">
-<div class="galerie-overlay">
-<h3 class="galerie-titre">Dashboard Client</h3>
-<p class="galerie-desc">Interface Lovelace custom : cards énergie, climat, sécurité. Accès app mobile Android/iOS</p>
-</div>
-</div>
-</div>
+        <div class="projet-item">
+            <img class="projet-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a6e68d788f295093344d234d2373c3348f923732.jpg" alt="Infrastructure réseau">
+            <div class="projet-content">
+                <h3 class="projet-titre">Dashboard Client</h3>
+                <p class="projet-desc">Interface Lovelace custom : cards énergie, climat, sécurité. Accès app mobile Android/iOS.</p>
+            </div>
+        </div>
+    </div>
 </section>
-</main>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div style="text-align: center; max-width: 500px; margin: 0 auto;">
+        <p><strong>gab.van@orange.fr</strong></p>
+        <p>
+            <a href="https://www.linkedin.com/in/ton-profil" target="_blank" style="color: #38bdf8;">LinkedIn</a> | 
+            <a href="https://github.com/Mu5tachio" target="_blank" style="color: #38bdf8;">GitHub</a>
+        </p>
+    </div>
+</section>
 
 <footer>
-<p>© 2026 Portfolio BTS SIO SISR</p>
+    <p>© 2026 Gabriel VAN ELST | BTS SIO SISR</p>
 </footer>
 
 <script>
-function toggleTheme(){
- document.body.classList.toggle("light")
+function toggleTheme() { document.body.classList.toggle("light"); }
+function toggleLang() {
+    const fr = document.querySelectorAll(".fr"), en = document.querySelectorAll(".en");
+    fr.forEach(e => e.style.display = e.style.display === "none" ? "block" : "none");
+    en.forEach(e => e.style.display = e.style.display === "none" ? "block" : "none");
 }
 
-function toggleLang(){
- const fr=document.querySelectorAll(".fr")
- const en=document.querySelectorAll(".en")
-
- fr.forEach(e=>{
-  e.style.display=e.style.display==="none"?"block":"none"
- })
-
- en.forEach(e=>{
-  e.style.display=e.style.display==="none"?"block":"none"
- })
-}
-
-const links=document.querySelectorAll("nav a")
-links.forEach(link=>{
- link.addEventListener("click",e=>{
-  e.preventDefault()
-  const target=document.querySelector(link.getAttribute("href"))
-  if(target) {
-    target.scrollIntoView({behavior:"smooth"})
-  } else {
-    window.location.href = link.getAttribute("href")
-  }
- })
-})
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute("href"));
+        target?.scrollIntoView({ behavior: "smooth" });
+    });
+});
 </script>
-
 </body>
 </html>
